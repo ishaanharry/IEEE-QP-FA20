@@ -1,15 +1,10 @@
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 
 import logo from './logo.svg';
 import './App.css';
 
-import Paper from '@material-ui/core/Paper';
-import { ViewState } from '@devexpress/dx-react-scheduler';
-import {
-  Scheduler,
-  DayView,
-  Appointments,
-} from '@devexpress/dx-react-scheduler-material-ui';
+import MainPage from './containers/MainPage';
 
 function App() {
 
@@ -20,21 +15,29 @@ function App() {
   ];
 
   return (
-    <Paper>
-      <Scheduler
-        data={schedulerData}
-      >
-        <ViewState
-          currentDate={currentDate}
-        />
-        <DayView
-          startDayHour={9}
-          endDayHour={14}
-        />
-        <Appointments />
-      </Scheduler>
-    </Paper>
+    <div>
+      <Switch>
+        <Route path="/" component={MainPage} />
+      </Switch>
+    </div>
   );
+
+  // return (
+  //   <Paper>
+  //     <Scheduler
+  //       data={schedulerData}
+  //     >
+  //       <ViewState
+  //         currentDate={currentDate}
+  //       />
+  //       <DayView
+  //         startDayHour={9}
+  //         endDayHour={14}
+  //       />
+  //       <Appointments />
+  //     </Scheduler>
+  //   </Paper>
+  // );
 
   // return (
   //   <div className="App">
