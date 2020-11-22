@@ -1,4 +1,4 @@
-import React from 'react';
+  import React from 'react';
 
 import Container from '@material-ui/core/Container';
 import { ViewState } from '@devexpress/dx-react-scheduler';
@@ -15,8 +15,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import teal from '@material-ui/core/colors/teal';
 import classNames from 'clsx';
 
-import Past from './PastView/Past.js';
-import Future from './FutureView/Future.js';
+import Past from '../components/PastView/Past.js';
+import Future from '../components/FutureView/Future.js';
+import Present from '../components/PresentView/Present.js';
 
 function MainPage(){
     const currentDate = '2020-11-14';
@@ -61,30 +62,34 @@ function MainPage(){
     };
 
     return (
-        <Container
-        maxWidth={'md'}
-        >
-          <Scheduler
-            data={schedulerData}
-          >
-            <ViewState
-              currentDate={currentDate}
-            />
-            <DayView
-              startDayHour={userStartHour - .5}
-              endDayHour={userEndHour}
-            />
-            <Appointments />
-            <CurrentTimeIndicator
-              shadePreviousCells={true}
-              shadePreviousAppointments={true}
-              indicatorComponent={TimeIndicator}
-            />
-            <Toolbar />
-            <DateNavigator />
-            <TodayButton />
-          </Scheduler>
-        </Container>
+        <div>
+            <Past></Past>
+            <Present></Present>
+            <Container
+            maxWidth={'md'}
+            >
+            <Scheduler
+                data={schedulerData}
+            >
+                <ViewState
+                currentDate={currentDate}
+                />
+                <DayView
+                startDayHour={userStartHour - .5}
+                endDayHour={userEndHour}
+                />
+                <Appointments />
+                <CurrentTimeIndicator
+                shadePreviousCells={true}
+                shadePreviousAppointments={true}
+                indicatorComponent={TimeIndicator}
+                />
+                <Toolbar />
+                <DateNavigator />
+                <TodayButton />
+            </Scheduler>
+            </Container>
+        </div>
     );
 }
 
