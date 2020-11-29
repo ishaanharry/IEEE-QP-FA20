@@ -1,4 +1,5 @@
 import React from 'react';
+import { render } from "react-dom";
 import { Route, Switch } from 'react-router-dom';
 
 import logo from './logo.svg';
@@ -15,11 +16,7 @@ function App() {
   ];
 
   return (
-    <div>
-      <Switch>
-        <Route path="/" component={MainPage} />
-      </Switch>
-    </div>
+    render(<MainPage />, document.getElementById("root"))
   );
 
   // return (
