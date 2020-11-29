@@ -13,4 +13,7 @@ class Todo(models.Model):
 
     def _str_(self):
         return self.title
-        
+
+class BookedTime(models.Model):
+    startTime = models.DateTimeField(auto_now=False, auto_now_add=False)
+    endTime = models.DateTimeField(auto_now=False, auto_now_add=False)
