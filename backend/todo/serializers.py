@@ -1,10 +1,16 @@
 # todo/serializers.py
 
 from rest_framework import serializers
-from .models import Todo
+from .models import PlannedEvent, DeterminedEvent
 
-class TodoSerializer(serializers.ModelSerializer):
+class PlannedEventSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Todo
-        fields = ('id', 'title', 'description', 'completed')
+        model = PlannedEvent
+        fields = ('id', 'title', 'startTime', 'endTime', 'duration', 'priority')
+
+class DeterminedEventSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DeterminedEvent
+        fields = ('id', 'title', 'startTime')
+
         
